@@ -21,7 +21,7 @@ cd $HOME
 
 git clone https://github.com/takkii/ddc_spring_load.git
 
-" ddc setting load.
+# ddc setting load.
 if filereadable(expand('~/ddc_spring_load/autoload/spring_load.vim'))
   source ~/ddc_spring_load/autoload/spring_load.vim
 endif
