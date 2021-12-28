@@ -1,6 +1,6 @@
 " Python3
-let g:python3_host_prog='C:/Python310/python.exe'
-let dynamic_python_dll='C:/Python310/python.dll'
+let g:python3_host_prog='C:/Python3/python.exe'
+let dynamic_python_dll='C:/Python3/python.dll'
 
 " dps-himekuri
 set runtimepath+=~/dps-himekuri
