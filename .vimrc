@@ -13,6 +13,9 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'shun/ddc-vim-lsp'
 
+" Japanese ime
+Plug 'vim-skk/skkeleton'
+
 " ddc.vim本体
 Plug 'Shougo/ddc.vim'
 
