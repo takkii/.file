@@ -1,8 +1,20 @@
 # frozen_string_literal: true
-#!/usr/bin/ruby
+
+require 'open3'
+require 'fileutils'
 
 class White
-  def magic
+  # default encoding utf-8, change encode here.
+  def self.encoding_style
+    Encoding.default_internal = 'UTF-8'
+    Encoding.default_external = 'UTF-8'
+  end
+
+  def self.magic
+  encoding_style
+  if File.exist?(File.expand_path('~/.vimrc'))
+    FileUtils.rm_rf(File.expand_path('~/.vimrc'))
+  end
     myhome = File.expand_path('~/.vimrc')
     File.open(myhome, 'a:utf-8', perm = 0o777) do |f|
       f.puts <<-DOC
@@ -15,13 +27,21 @@ endif
   end
 end
 
-White.new.magic
-
 class Black
-  def magic
+  # default encoding utf-8, change encode here.
+  def self.encoding_style
+    Encoding.default_internal = 'UTF-8'
+    Encoding.default_external = 'UTF-8'
+  end
+
+  def self.magic
+  encoding_style
+  if File.exist?(File.expand_path('~/.gvimrc'))
+    FileUtils.rm_rf(File.expand_path('~/.gvimrc'))
+  end
     myhome = File.expand_path('~/.gvimrc')
     File.open(myhome, 'a:utf-8', perm = 0o777) do |f|
-      f.puts <<-DOC
+    f.puts <<-DOC
 " deoplete_win
 if filereadable(expand('~/ddc_vim/.gvimrc'))
   source ~/ddc_vim/.gvimrc
@@ -31,4 +51,6 @@ endif
   end
 end
 
-Black.new.magic
+White.magic
+Black.magic
+
