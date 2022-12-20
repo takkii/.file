@@ -1,14 +1,52 @@
-" Defx Config Setting----------------------
+" vim-lsp
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <C-]> <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  nmap <buffer> <Leader>d <plug>(lsp-type-definition)
+  nmap <buffer> <Leader>r <plug>(lsp-references)
+  nmap <buffer> <Leader>i <plug>(lsp-implementation)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
 
-let g:defx_icons_enable_syntax_highlight = 1
-let g:defx_icons_column_length = 2
-let g:defx_icons_directory_icon = '📁'
-let g:defx_icons_mark_icon = '*'
-let g:defx_icons_parent_icon = '📂'
-let g:defx_icons_default_icon = '📁'
-let g:defx_icons_directory_symlink_icon = '📂'
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
 
-" Defx Config Setting----------------------
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 1
+let g:lsp_preview_float = 1
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
+
+let g:lsp_settings = {}
+let g:lsp_settings['gopls'] = {
+  \  'workspace_config': {
+  \    'usePlaceholders': v:true,
+  \    'analyses': {
+  \      'fillstruct': v:true,
+  \    },
+  \  },
+  \  'initialization_options': {
+  \    'usePlaceholders': v:true,
+  \    'analyses': {
+  \      'fillstruct': v:true,
+  \    },
+  \  },
+  \}
+
+" For snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+set completeopt+=menuone
 
 " IME
 function! s:skkeleton_init() abort
@@ -161,15 +199,12 @@ function! s:denite_filter_my_setting() abort
   nnoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
 endfunction
 
-
-
-let g:python3_host_prog=$HOME . '/.pyenv/shims/python3'
-let g:ruby_host_prog=$HOME . '/.rbenv/shims/ruby'
+" Python3
+let g:python3_host_prog='C:/Python3/python.exe'
+let dynamic_python_dll='C:/Python3/python.dll'
 
 " runtimepath
 set runtimepath+=~/dps-himekuri
-set runtimepath+=~/defx-icons-ver.takkii
-source ~/vim-com/plugins/refac.vim
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -251,5 +286,5 @@ set number
 set wildmenu
 set wildmode=list:full
 set laststatus=2
-set guifont=HackGenConsoleNFJ-Regular:h12
+set guifont=HackGenConsoleNFJ-Regular:h13
 set backspace=indent,eol,start
