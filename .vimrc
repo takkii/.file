@@ -25,6 +25,7 @@ let g:lsp_preview_float = 1
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
 
+" Go Lang LSP
 let g:lsp_settings = {}
 let g:lsp_settings['gopls'] = {
   \  'workspace_config': {
@@ -40,6 +41,28 @@ let g:lsp_settings['gopls'] = {
   \    },
   \  },
   \}
+
+" Python LSP
+if executable('pylsp')
+    " pip install python-lsp-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'whitelist': ['python'],
+        \ 'workspace_config': {
+        \   'pyls': {
+        \       'plugins': {
+        \           'jedi_definition': {
+        \               'follow_imports': v:true, 
+        \               'follow_builtin_imports': v:true,
+        \           },
+        \           'pyls_mypy': {
+        \               'enabled': 1,
+        \           },
+        \   }
+        \ }}
+        \ })
+endif
 
 " For snippets
 let g:UltiSnipsExpandTrigger="<tab>"
