@@ -64,6 +64,22 @@ if executable('pylsp')
         \ })
 endif
 
+" TypeScript LSP
+if executable('typescript-language-server')
+    augroup LspTypeScript
+        au!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'typescript-language-server',
+                    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+                    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+                    \ 'whitelist': ['typescript'],
+                    \ })
+        autocmd FileType typescript setlocal omnifunc=lsp#complete
+    augroup END :echomsg "vim-lsp with `typescript-language-server` enabled"
+else
+    :echomsg "vim-lsp for typescript unavailable"
+endif
+
 " For snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -127,100 +143,15 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
-" Defx
-autocmd FileType defx call s:defx_my_settings()
-    function! s:defx_my_settings() abort
-      " Define mappings
-nnoremap <silent><buffer><expr> <CR>
-\ defx#do_action('open')
-nnoremap <silent><buffer><expr> c
-\ defx#do_action('copy')
-nnoremap <silent><buffer><expr> m
-\ defx#do_action('move')
-nnoremap <silent><buffer><expr> p
-\ defx#do_action('paste')
-nnoremap <silent><buffer><expr> l
-\ defx#do_action('open')
-nnoremap <silent><buffer><expr> E
-\ defx#do_action('open', 'vsplit')
-nnoremap <silent><buffer><expr> P
-\ defx#do_action('open', 'pedit')
-nnoremap <silent><buffer><expr> o
-\ defx#do_action('open_or_close_tree')
-nnoremap <silent><buffer><expr> K
-\ defx#do_action('new_directory')
-nnoremap <silent><buffer><expr> N
-\ defx#do_action('new_file')
-nnoremap <silent><buffer><expr> M
-\ defx#do_action('new_multiple_files')
-nnoremap <silent><buffer><expr> C
-\ defx#do_action('toggle_columns',
-  \ 'mark:indent:icon:filename:type:size:time')
-nnoremap <silent><buffer><expr> S
-\ defx#do_action('toggle_sort', 'time')
-nnoremap <silent><buffer><expr> d
-\ defx#do_action('remove')
-nnoremap <silent><buffer><expr> r
-\ defx#do_action('rename')
-nnoremap <silent><buffer><expr> !
-\ defx#do_action('execute_command')
-nnoremap <silent><buffer><expr> x
-\ defx#do_action('execute_system')
-nnoremap <silent><buffer><expr> yy
-\ defx#do_action('yank_path')
-nnoremap <silent><buffer><expr> .
-\ defx#do_action('toggle_ignored_files')
-nnoremap <silent><buffer><expr> ;
-\ defx#do_action('repeat')
-nnoremap <silent><buffer><expr> h
-\ defx#do_action('cd', ['..'])
-nnoremap <silent><buffer><expr> ~
-\ defx#do_action('cd')
-nnoremap <silent><buffer><expr> q
-\ defx#do_action('quit')
-nnoremap <silent><buffer><expr> <Space>
-\ defx#do_action('toggle_select') . 'j'
-nnoremap <silent><buffer><expr> *
-\ defx#do_action('toggle_select_all')
-nnoremap <silent><buffer><expr> j
-\ line('.') == line('$') ? 'gg' : 'j'
-nnoremap <silent><buffer><expr> k
-\ line('.') == 1 ? 'G' : 'k'
-nnoremap <silent><buffer><expr> <C-l>
-\ defx#do_action('redraw')
-nnoremap <silent><buffer><expr> <C-g>
-\ defx#do_action('print')
-nnoremap <silent><buffer><expr> cd
-\ defx#do_action('change_vim_cwd')
+function s:MoveToFileAtStart()
+  call feedkeys("\<Space>")
+  call feedkeys("\s")
+  call feedkeys("\l")
 endfunction
 
-" Denite
-nnoremap <silent> <space>fr :<C-u>Denite file_mru -split="floating"<CR>
-
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent> <space>
-  \ fr :<C-u>Denite file_mru -split="floating"<CR>
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
-
-autocmd FileType denite-filter call s:denite_filter_my_setting()
-function! s:denite_filter_my_setting() abort
-  inoremap <silent><buffer><expr> <BS>    denite#do_map('move_up_path')
-  inoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
-endfunction
+if !argc()
+    autocmd VimEnter *  NERDTree | call s:MoveToFileAtStart() 
+endif
 
 " Python3
 let g:python3_host_prog='C:/Python3/python.exe'
@@ -268,16 +199,8 @@ Plug 'Shougo/ddc-converter_remove_overlap'
 Plug 'Shougo/ddc-ui-native'
 Plug 'Shougo/ddc-source-around'
 
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 " appearance
+Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'w0rp/ale'

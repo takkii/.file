@@ -29,7 +29,7 @@ unlet s:cpo_save
 
 set guioptions-=T
 set lines=45
-set columns=130
+set columns=165
 set encoding=utf-8
 
 " source $VIMRUNTIME\delmenu.vim
