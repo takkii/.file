@@ -42,7 +42,6 @@ let g:lsp_settings['gopls'] = {
   \  },
   \}
 
-" Python LSP
 if executable('pylsp')
     " pip install python-lsp-server
     au User lsp_setup call lsp#register_server({
@@ -50,13 +49,13 @@ if executable('pylsp')
         \ 'cmd': {server_info->['pylsp']},
         \ 'whitelist': ['python'],
         \ 'workspace_config': {
-        \   'pyls': {
+        \   'pylsp': {
         \       'plugins': {
         \           'jedi_definition': {
         \               'follow_imports': v:true, 
         \               'follow_builtin_imports': v:true,
         \           },
-        \           'pyls_mypy': {
+        \           'pylsp_mypy': {
         \               'enabled': 1,
         \           },
         \   }
@@ -155,7 +154,7 @@ endif
 
 " Python3
 let g:python3_host_prog='C:/Python3/python.exe'
-let dynamic_python_dll='C:/Python3/python.dll'
+let dynamic_python_dll='C:/Python3/python3.dll'
 
 " runtimepath
 set runtimepath+=~/dps-himekuri
