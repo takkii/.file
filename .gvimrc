@@ -37,4 +37,4 @@ source $VIMRUNTIME\menu.vim
 source $VIMRUNTIME/mswin.vim
 
 " $HOME
-cd ~
+cd ~/GitHub
