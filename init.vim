@@ -145,8 +145,19 @@ let g:lsp_settings['gopls'] = {
   \  },
   \}
 
+" gem install solargraph
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+" pip install python-lsp-server
 if executable('pylsp')
-    " pip install python-lsp-server
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pylsp',
         \ 'cmd': {server_info->['pylsp']},
