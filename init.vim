@@ -93,14 +93,6 @@ nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
 nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
 vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
 
-" QuickRun
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-      \ 'outputter/buffer/opener': 'new',
-      \ 'outputter/buffer/into': 1,
-      \ 'outputter/buffer/close_on_empty': 1,
-      \ }
-
 " vim-lsp
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
@@ -303,15 +295,15 @@ Plug 'Shougo/ddc-sorter_rank'
 " 補完候補の重複を防ぐためのfilter
 Plug 'Shougo/ddc-converter_remove_overlap'
 
-" complete
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'shun/ddc-vim-lsp'
-Plug 'matsui54/ddc-dictionary'
-
 " 追加
 Plug 'Shougo/ddc-ui-native'
 Plug 'Shougo/ddc-source-around'
+Plug 'Shougo/ddc-nvim-lsp'
+Plug 'Shougo/ddc-source-nvim-lsp'
+
+" neovim
+Plug 'neovim/nvim-lspconfig'
+Plug 'uga-rosa/ddc-nvim-lsp-setup'
 
 " 外観
 Plug 'itchyny/lightline.vim'
@@ -326,10 +318,8 @@ Plug 'mfussenegger/nvim-dap-python'
 Plug 'leoluz/nvim-dap-go'
 Plug 'rcarriga/nvim-dap-ui'
 
-" Run
-Plug 'thinca/vim-quickrun'
-
 " Make My Plugins.
+Plug 'takkii/config'
 Plug 'takkii/vim-com'
 Plug 'takkii/dps-himekuri'
 Plug 'takkii/neoruby-debugger'
@@ -351,6 +341,10 @@ endif
 if filereadable(expand('~/.neovim/plugged/vim-com/plugins/refac.vim'))
   source ~/.neovim/plugged/vim-com/plugins/refac.vim
 endif
+
+" nvim-lsp
+lua require('ddc_nvim_lsp_setup').setup()
+lua require('lspconfig').denols.setup{}
 
 " Debug Setup
 lua require('neoruby-debugger').setup()
