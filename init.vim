@@ -248,25 +248,15 @@ if filereadable(expand('~/.neovim/plugged/vim-com/plugins/refac.vim'))
   source ~/.neovim/plugged/vim-com/plugins/refac.vim
 endif
 
-" LSP-Settgins
 lua << EOF
 
+-- Lua Settings-Start
+require('neoruby-debugger').setup()
+require('dap-python').setup('C:/Python3/python.exe')
+require('dap-python').test_runner = 'pytest'
+require('dap-go').setup()
+require('dapui').setup()
 require('ddc_nvim_lsp_setup').setup()
-
-local servers = { 'solargraph', 'tsserver' , 'pylsp', 'gopls'}
-for _, lsp in ipairs(servers) do
-require('lspconfig').denols.setup{
-  flags = {
-    debounce_text_changes = 150,
-    },
-  settings = {
-    solargraph = {
-      diagnostics = false
-    }
-  }
-}
-
-end
 
 local mason = require('mason')
 mason.setup({
@@ -293,16 +283,12 @@ mason_lspconfig.setup_handlers({ function(server_name)
    nvim_lsp[server_name].setup(opts)
 end })
 
- -- LSP-Settgins ... END
+-- LSP-Settgins-END
 EOF
 
 
 " Debug Setup
-lua require('neoruby-debugger').setup()
-lua require('dap-python').setup('C:/Python3/python.exe')
-lua require('dap-python').test_runner = 'pytest'
-lua require('dap-go').setup()
-lua require('dapui').setup()
+
 
 " Editor settings
 set fileencodings=utf-8,cp932
