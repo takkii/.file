@@ -208,7 +208,8 @@ Plug 'Shougo/ddc-source-nvim-lsp'
 " nvim-lsp config
 Plug 'neovim/nvim-lspconfig'
 Plug 'uga-rosa/ddc-nvim-lsp-setup'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 
 " 外観
 Plug 'itchyny/lightline.vim'
@@ -264,15 +265,37 @@ require('lspconfig').denols.setup{
     }
   }
 }
+
 end
 
-local lsp_installer = require("nvim-lsp-installer")
+local mason = require('mason')
+mason.setup({
+   ui = {
+     icons = {
+       package_installed = "✓",
+       package_pending = "➜",
+       package_uninstalled = "✗"
+     }
+   }
+ })
 
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-  server:setup(opts)
-end)
+local nvim_lsp = require('lspconfig')
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup_handlers({ function(server_name)
+   local opts = {}
+   opts.on_attach = function(_, bufnr)
+     local bufopts = { silent = true, buffer = bufnr }
+     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+     vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
+     vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
+     vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
+  end
+   nvim_lsp[server_name].setup(opts)
+end })
+
+ -- LSP-Settgins ... END
 EOF
+
 
 " Debug Setup
 lua require('neoruby-debugger').setup()
