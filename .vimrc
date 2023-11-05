@@ -1,3 +1,10 @@
+" Python3
+let g:python3_host_prog = 'C:/Python3/python.exe'
+let dynamic_python_dll = 'C:/Python3/python3.dll'
+
+" Deno
+let g:denops#deno=$HOME . '/scoop/apps/deno/current/deno.exe'
+
 " Defx
 autocmd FileType defx call s:defx_my_settings()
     function! s:defx_my_settings() abort
@@ -65,15 +72,6 @@ autocmd FileType defx call s:defx_my_settings()
       \ defx#do_action('change_vim_cwd')
     endfunction
 
-" defx-icons-ver.takkii
-let g:defx_icons_enable_syntax_highlight = 1
-let g:defx_icons_column_length = 2
-let g:defx_icons_directory_icon = '📁'
-let g:defx_icons_mark_icon = '*'
-let g:defx_icons_parent_icon = '📂'
-let g:defx_icons_default_icon = '📁'
-let g:defx_icons_directory_symlink_icon = '📂'
-
 " vim-lsp
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
@@ -100,9 +98,15 @@ let g:lsp_text_edit_enabled = 1
 let g:lsp_preview_float = 1
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
+let g:lsp_settings_filetype_ruby = ['solargraph']
+
+" lsp-setting black list.
+let g:lsp_settings = {
+\  'typeprof': {'disabled': 1},
+\  'ruby-lsp': {'disabled': 1},
+\}
 
 " Go Lang LSP
-let g:lsp_settings = {}
 let g:lsp_settings['gopls'] = {
   \  'workspace_config': {
   \    'usePlaceholders': v:true,
@@ -117,6 +121,17 @@ let g:lsp_settings['gopls'] = {
   \    },
   \  },
   \}
+
+" gem install solargraph
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "false"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
 
 if executable('pylsp')
     " pip install python-lsp-server
@@ -224,19 +239,10 @@ function s:MoveToFileAtStart()
   call feedkeys("\l")
 endfunction
 
-" vim-com
-source ~/vim-com/plugins/refac.vim
-
-" Python3
-let g:python3_host_prog=$HOME . '/.pyenv/shims/python'
-
-" Deno
-let g:denops#deno=$HOME . '/.deno/bin/deno'
-
-" runtimepath
-set runtimepath+=~/dps-himekuri
-set runtimepath+=~/defx-icons-ver.takkii
-set runtimepath+=~/vim-com
+" himekuri.vim
+if filereadable(expand('~/.neovim/plugged/dps-himekuri/autoload/himekuri.vim'))
+  source ~/.vim/plugged/dps-himekuri/autoload/himekuri.vim
+endif
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -285,12 +291,15 @@ Plug 'Shougo/ddc-converter_remove_overlap'
 Plug 'Shougo/ddc-ui-native'
 Plug 'Shougo/ddc-source-around'
 
-" appearance
+" 外観
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'dense-analysis/ale'
 Plug 'gkeep/iceberg-dark'
 Plug 'cocopon/iceberg.vim'
+
+" Make My Plugins.
+Plug 'takkii/dps-himekuri'
 
 " Initialize plugin system
 call plug#end()
@@ -305,6 +314,7 @@ if filereadable(expand('~/dps-himekuri/autoload/himekuri.vim'))
     source ~/dps-himekuri/autoload/himekuri.vim
 endif
 
+" Editor settings
 set fileencodings=utf-8,cp932
 set background=dark
 colorscheme iceberg
@@ -317,4 +327,8 @@ set number
 set wildmenu
 set wildmode=list:full
 set laststatus=2
+set guifont=Source\ Code\ Pro\ Semibold\:h9:cANSI:qDRAFT
 set backspace=indent,eol,start
+set encoding=utf-8
+
+cd ~/

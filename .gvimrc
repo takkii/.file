@@ -28,13 +28,13 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 set guioptions-=T
-set lines=30
-set columns=135
+set lines=55
+set columns=155
 set encoding=utf-8
 
-" source $VIMRUNTIME\delmenu.vim
-" source $VIMRUNTIME\menu.vim
-" source $VIMRUNTIME/mswin.vim
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+source $VIMRUNTIME/mswin.vim
 
 " $HOME
 cd ~/
