@@ -272,7 +272,25 @@ mason.setup({
 local nvim_lsp = require('lspconfig')
 local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup_handlers({ function(server_name)
-   local opts = {}
+   local opts = {
+    flags = {
+      debounce_text_changes = 150,
+      },
+      settings = {
+        solargraph = {
+          diagnostics = false
+        },
+        pylsp = {
+          diagnostics = false
+        },
+        gopls = {
+          diagnostics = false
+        },
+        tsserver = {
+          diagnostics = false
+        },
+      }
+   }
    opts.on_attach = function(_, bufnr)
      local bufopts = { silent = true, buffer = bufnr }
      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
