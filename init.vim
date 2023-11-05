@@ -93,103 +93,7 @@ nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
 nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
 vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
 
-" vim-lsp
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  setlocal signcolumn=yes
-  nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> <C-]> <plug>(lsp-definition)
-  nmap <buffer> <f2> <plug>(lsp-rename)
-  nmap <buffer> <Leader>d <plug>(lsp-type-definition)
-  nmap <buffer> <Leader>r <plug>(lsp-references)
-  nmap <buffer> <Leader>i <plug>(lsp-implementation)
-  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
-endfunction
-
-augroup lsp_install
-  au!
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
-
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:asyncomplete_popup_delay = 200
-let g:lsp_text_edit_enabled = 1
-let g:lsp_preview_float = 1
-let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
-
-" Go Lang LSP
-let g:lsp_settings = {}
-let g:lsp_settings['gopls'] = {
-  \  'workspace_config': {
-  \    'usePlaceholders': v:true,
-  \    'analyses': {
-  \      'fillstruct': v:true,
-  \    },
-  \  },
-  \  'initialization_options': {
-  \    'usePlaceholders': v:true,
-  \    'analyses': {
-  \      'fillstruct': v:true,
-  \    },
-  \  },
-  \}
-
-" gem install solargraph
-if executable('solargraph')
-    " gem install solargraph
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
-endif
-
-" pip install python-lsp-server
-if executable('pylsp')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {
-        \   'pylsp': {
-        \       'plugins': {
-        \           'jedi_definition': {
-        \               'follow_imports': v:true, 
-        \               'follow_builtin_imports': v:true,
-        \           },
-        \           'pylsp_mypy': {
-        \               'enabled': 1,
-        \           },
-        \   }
-        \ }}
-        \ })
-endif
-
-" npm install -g typescript-language-server
-if executable('typescript-language-server')
-    augroup LspTypeScript
-        au!
-        autocmd User lsp_setup call lsp#register_server({
-                    \ 'name': 'typescript-language-server',
-                    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-                    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-                    \ 'whitelist': ['typescript'],
-                    \ })
-        autocmd FileType typescript setlocal omnifunc=lsp#complete
-    augroup END :echomsg "vim-lsp with `typescript-language-server` enabled"
-else
-    :echomsg "vim-lsp for typescript unavailable"
-endif
-
-" For snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
+" Setteings
 set completeopt+=menuone
 
 " IME
@@ -301,9 +205,10 @@ Plug 'Shougo/ddc-source-around'
 Plug 'Shougo/ddc-nvim-lsp'
 Plug 'Shougo/ddc-source-nvim-lsp'
 
-" neovim
+" nvim-lsp config
 Plug 'neovim/nvim-lspconfig'
 Plug 'uga-rosa/ddc-nvim-lsp-setup'
+Plug 'williamboman/nvim-lsp-installer'
 
 " 外観
 Plug 'itchyny/lightline.vim'
@@ -342,9 +247,32 @@ if filereadable(expand('~/.neovim/plugged/vim-com/plugins/refac.vim'))
   source ~/.neovim/plugged/vim-com/plugins/refac.vim
 endif
 
-" nvim-lsp
-lua require('ddc_nvim_lsp_setup').setup()
-lua require('lspconfig').denols.setup{}
+" LSP-Settgins
+lua << EOF
+
+require('ddc_nvim_lsp_setup').setup()
+
+local servers = { 'solargraph', 'tsserver' , 'pylsp', 'gopls'}
+for _, lsp in ipairs(servers) do
+require('lspconfig').denols.setup{
+  flags = {
+    debounce_text_changes = 150,
+    },
+  settings = {
+    solargraph = {
+      diagnostics = false
+    }
+  }
+}
+end
+
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
+EOF
 
 " Debug Setup
 lua require('neoruby-debugger').setup()
