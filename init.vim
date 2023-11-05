@@ -257,56 +257,34 @@ require('dap-python').test_runner = 'pytest'
 require('dap-go').setup()
 require('dapui').setup()
 require('ddc_nvim_lsp_setup').setup()
+require('lspconfig').denols.setup({})
 
 local mason = require('mason')
-mason.setup({
-   ui = {
-     icons = {
-       package_installed = "✓",
-       package_pending = "➜",
-       package_uninstalled = "✗"
-     }
-   }
- })
-
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 local mason_lspconfig = require('mason-lspconfig')
-mason_lspconfig.setup_handlers({ function(server_name)
-   local opts = {
-    flags = {
-      debounce_text_changes = 150,
-      },
-      settings = {
-        solargraph = {
-          diagnostics = false
-        },
-        pylsp = {
-          diagnostics = false
-        },
-        gopls = {
-          diagnostics = false
-        },
-        tsserver = {
-          diagnostics = false
-        },
-      }
-   }
-   opts.on_attach = function(_, bufnr)
-     local bufopts = { silent = true, buffer = bufnr }
-     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-     vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
-     vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
-     vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
-  end
-   nvim_lsp[server_name].setup(opts)
-end })
 
--- LSP-Settgins-END
+mason.setup()
+
+mason_lspconfig.setup()
+mason_lspconfig.setup_handlers({
+    function(server_name)
+        lspconfig[server_name].setup({})
+    end,
+    solargraph = function()
+        lspconfig.solargraph.setup({})
+    end,
+    pylsp = function()
+        lspconfig.pylsp.setup({})
+    end,
+    gopls = function()
+        lspconfig.gopls.setup({})
+    end,
+    rust_analyzer = function()
+        require('rust-tools').setup({})
+    end,
+})
+
 EOF
-
-
-" Debug Setup
-
 
 " Editor settings
 set fileencodings=utf-8,cp932
