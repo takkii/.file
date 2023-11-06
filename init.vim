@@ -282,7 +282,7 @@ mason_lspconfig.setup_handlers({
         lspconfig.denols.setup({})
     end,
     rust_analyzer = function()
-        require('rust-tools').setup({})
+        lspconfig.rust_analyzer.setup({})
     end,
 })
 
