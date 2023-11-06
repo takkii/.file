@@ -257,7 +257,6 @@ require('dap-python').test_runner = 'pytest'
 require('dap-go').setup()
 require('dapui').setup()
 require('ddc_nvim_lsp_setup').setup()
-require('lspconfig').denols.setup({})
 
 local mason = require('mason')
 local lspconfig = require('lspconfig')
@@ -278,6 +277,9 @@ mason_lspconfig.setup_handlers({
     end,
     gopls = function()
         lspconfig.gopls.setup({})
+    end,
+    denols = function()
+        lspconfig.denols.setup({})
     end,
     rust_analyzer = function()
         require('rust-tools').setup({})
