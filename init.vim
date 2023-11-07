@@ -262,7 +262,15 @@ local mason = require('mason')
 local lspconfig = require('lspconfig')
 local mason_lspconfig = require('mason-lspconfig')
 
-mason.setup()
+ mason.setup({
+   ui = {
+     icons = {
+       package_installed = "✓",
+       package_pending = "➜",
+       package_uninstalled = "✗"
+     }
+   }
+ })
 
 mason_lspconfig.setup()
 mason_lspconfig.setup_handlers({
