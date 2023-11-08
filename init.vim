@@ -250,7 +250,9 @@ if filereadable(expand('~/.neovim/plugged/vim-com/plugins/refac.vim'))
 endif
 
 "lua-settings
-lua require('lua_settings')
+if filereadable(expand('~/ddc_vim/lua/lua_settings.lua'))
+  lua require('lua_settings')
+endif
 
 " Editor settings
 set fileencodings=utf-8,cp932
