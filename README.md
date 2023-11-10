@@ -1,4 +1,4 @@
-### ddc_vim use ubuntu22.04
+### init.vim use ddc.vim.
 
 how to use [wiki](https://github.com/takkii/ddc_vim/wiki/README)
 
