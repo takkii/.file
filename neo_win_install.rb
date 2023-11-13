@@ -18,8 +18,9 @@ class White
     myhome = File.expand_path('~/AppData/Local/nvim/init.vim')
     File.open(myhome, 'a:utf-8', perm = 0o777) do |f|
       f.puts <<-DOC
-if filereadable(expand('~/ddc_vim/init.vim'))
-  source ~/ddc_vim/init.vim
+" ddc_vim
+if filereadable(expand('~/ddc_vim/lua/init.lua'))
+  lua require('init')
 endif
       DOC
     end
