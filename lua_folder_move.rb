@@ -17,7 +17,7 @@ class White
     puts "something else."
   else
     FileUtils.mkdir(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-    FileUtils.cp(['./lua/appearance.lua', './lua/himekuri.lua', './lua/lua_settings.lua', './lua/path_settings.lua', './lua/runtimepath.lua', './lua/spring_load.lua', './lua/vim-com.lua', './lua/vim-plug.lua', './lua/ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+    FileUtils.cp(['./lua/init.lua', './lua/appearance.lua', './lua/himekuri.lua', './lua/lua_settings.lua', './lua/path_settings.lua', './lua/runtimepath.lua', './lua/spring_load.lua', './lua/vim-com.lua', './lua/vim-plug.lua', './lua/ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
     end
   end
 end
