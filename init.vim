@@ -1,21 +1,16 @@
-" path_settings.vim
-if filereadable(expand('~/ddc_vim/lua/path_settings.lua'))
-  lua require('path_settings')
-endif
-
 " ware_settings.vim
 if filereadable(expand('~/ddc_vim/settings/ware_settings.vim'))
-  source ~/ddc_vim/neovim_settings/ware_settings.vim
+  source ~/ddc_vim/settings/ware_settings.vim
 endif
 
 " runtimepath.vim
 if filereadable(expand('~/ddc_vim/settings/runtimepath.vim'))
-  source ~/ddc_vim/neovim_settings/runtimepath.vim
+  source ~/ddc_vim/settings/runtimepath.vim
 endif
 
 " vim-plug.vim
 if filereadable(expand('~/ddc_vim/settings/vim-plug.vim'))
-  source ~/ddc_vim/neovim_settings/vim-plug.vim
+  source ~/ddc_vim/settings/vim-plug.vim
 endif
 
 " spring_load.vim
@@ -33,12 +28,19 @@ if filereadable(expand('~/.neovim/plugged/vim-com/plugins/refac.vim'))
   source ~/.neovim/plugged/vim-com/plugins/refac.vim
 endif
 
+" path_settings
+if filereadable(expand('~/ddc_vim/lua/path_settings.lua'))
+  lua require('path_settings')
+endif
+
 "lua-settings
 if filereadable(expand('~/ddc_vim/lua/lua_settings.lua'))
   lua require('lua_settings')
 endif
 
-" appearance.vim'
+" appearance
 if filereadable(expand('~/ddc_vim/lua/appearance.lua'))
   lua require('appearance')
 endif
+
+cd ~
