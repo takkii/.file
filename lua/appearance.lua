@@ -18,4 +18,6 @@ vim.cmd [[
   set lines=45
   set columns=124
   set encoding=utf-8
+
+  cd ~
 ]]
