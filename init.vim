@@ -1,20 +1,20 @@
 " path_settings.vim
-if filereadable(expand('~/ddc_vim/neovim_settings/path_settings.vim'))
-  source ~/ddc_vim/neovim_settings/path_settings.vim
+if filereadable(expand('~/ddc_vim/lua/path_settings.lua'))
+  lua require('path_settings')
 endif
 
 " ware_settings.vim
-if filereadable(expand('~/ddc_vim/neovim_settings/ware_settings.vim'))
+if filereadable(expand('~/ddc_vim/settings/ware_settings.vim'))
   source ~/ddc_vim/neovim_settings/ware_settings.vim
 endif
 
 " runtimepath.vim
-if filereadable(expand('~/ddc_vim/neovim_settings/runtimepath.vim'))
+if filereadable(expand('~/ddc_vim/settings/runtimepath.vim'))
   source ~/ddc_vim/neovim_settings/runtimepath.vim
 endif
 
 " vim-plug.vim
-if filereadable(expand('~/ddc_vim/neovim_settings/vim-plug.vim'))
+if filereadable(expand('~/ddc_vim/settings/vim-plug.vim'))
   source ~/ddc_vim/neovim_settings/vim-plug.vim
 endif
 
@@ -39,6 +39,6 @@ if filereadable(expand('~/ddc_vim/lua/lua_settings.lua'))
 endif
 
 " appearance.vim'
-if filereadable(expand('~/ddc_vim/neovim_settings/appearance.vim'))
-  source ~/ddc_vim/neovim_settings/appearance.vim
+if filereadable(expand('~/ddc_vim/lua/appearance.lua'))
+  lua require('appearance')
 endif
