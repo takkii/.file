@@ -1,30 +1,21 @@
 -- appearance
 
 vim.cmd [[
-try
-  colorscheme iceberg
-  syntax enable
-  set guifont=Source\ Code\ Pro\ Semibold\:h9:sb
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme iceberg
+  set fileencodings=utf-8,cp932
   set background=dark
+  colorscheme iceberg
+  set splitbelow
+  set nobackup
+  set noundofile
+  set noswapfile
   syntax enable
+  set number
+  set wildmenu
+  set wildmode=list:full
+  set laststatus=2
   set guifont=Source\ Code\ Pro\ Semibold\:h9:sb
-endtry
+  set backspace=indent,eol,start
+  set lines=45
+  set columns=124
+  set encoding=utf-8
 ]]
-
-local options = {
-  fileencodings = "utf-8,cp932",
-  splitbelow = true,
-  nobackup = true,
-  noundofile = true,
-  noswapfile = true,
-  number = true,
-  wildmenu = true,
-  wildmode = "list:full",
-  laststatus = 2,
-  backspace = "indent,eol,start",
-  lines = 45,
-  columns = 124,
-  encoding = "utf-8",
-}
