@@ -18,9 +18,18 @@ class White
   else
     FileUtils.mkdir(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
     FileUtils.cp(['./lua/init.lua', './lua/appearance.lua', './lua/himekuri.lua', './lua/lua_settings.lua', './lua/path_settings.lua', './lua/runtimepath.lua', './lua/spring_load.lua', './lua/vim-com.lua', './lua/vim-plug.lua', './lua/ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+    puts 'The specified file has been extracted.'
   end
 
   end
 end
 
-White.magic
+begin
+  White.magic
+rescue StandardError => e
+  puts e.backtrace
+ensure
+  GC.compact
+end
+
+__END__
