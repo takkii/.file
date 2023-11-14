@@ -14,7 +14,16 @@ class UnInstallerRunner
   def self.run
     encoding_style
     FileUtils.rm_rf(File.expand_path('~/ddc_spring_load'))
+    puts 'The specified folder has been deleted.'
   end
 end
 
-UnInstallerRunner.run
+begin
+  UnInstallerRunner.run
+rescue StandardError => e
+  puts e.backtrace
+ensure
+  GC.compact
+end
+
+__END__
