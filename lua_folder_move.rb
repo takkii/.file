@@ -14,7 +14,7 @@ class White
   encoding_style
 
   if Dir.exist?(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-    puts "something else."
+    puts 'There is already a folder, ruby does nothing.'
   else
     FileUtils.mkdir(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
     FileUtils.cp(['./lua/init.lua', './lua/appearance.lua', './lua/himekuri.lua', './lua/lua_settings.lua', './lua/path_settings.lua', './lua/runtimepath.lua', './lua/spring_load.lua', './lua/vim-com.lua', './lua/vim-plug.lua', './lua/ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
