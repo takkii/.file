@@ -14,6 +14,7 @@ class White
   encoding_style
   if File.exist?(File.expand_path('~/AppData/Local/nvim/init.vim'))
     FileUtils.rm_rf(File.expand_path('~/AppData/Local/nvim/init.vim'))
+    puts 'The file exists, so I deleted it.'
   end
     myhome = File.expand_path('~/AppData/Local/nvim/init.vim')
     File.open(myhome, 'a:utf-8', perm = 0o777) do |f|
@@ -23,8 +24,17 @@ if filereadable(expand('~/ddc_vim/lua/init.lua'))
   lua require('init')
 endif
       DOC
+      puts 'I placed init.vim in the specified PATH.'
     end
   end
 end
 
-White.magic
+begin
+  White.magic
+rescue StandardError => e
+  puts e.backtrace
+ensure
+  GC.compact
+end
+
+__END__
