@@ -13,10 +13,8 @@ vim.cmd [[
   set wildmenu
   set wildmode=list:full
   set laststatus=2
-  set guifont=Source\ Code\ Pro\ Semibold\:h9:sb
+  set guifont=Source\ Code\ Pro\ Semibold\:h11:sb
   set backspace=indent,eol,start
-  set lines=45
-  set columns=124
   set encoding=utf-8
 
   cd ~
