@@ -10,7 +10,7 @@ IgnoreSaveConfirmationWithCloseButton = false
 ## Makes the application window frameless.
 # BorderlessWindow = false
 
-## Controls whether the title bar is displayed when the borderless 
+## Controls whether the title bar is displayed when the borderless
 ## window setting is enabled.
 # HideTitlebar = false
 
@@ -30,7 +30,7 @@ Height = 950
 ## Specifies the amount of scrolling by the mouse wheel. The default value is 1.
 # LineToScroll = 1
 
-## MouseScrollingUnit sets the mode of mouse scrolling. 
+## MouseScrollingUnit sets the mode of mouse scrolling.
 ## "line" scrolls in lines.
 ## "pixel" scrolls in pixels.
 ## "smart" scrolls in pixels when the amount of scrolling is small, and
@@ -47,9 +47,9 @@ Transparent = 0.8
 ## Launch goneovim with maximized window size.
 # StartMaximizedWindow = false
 
-## Enabling WindowGeometryBasedOnFontmetrics sets the minimum unit of window geometry change 
+## Enabling WindowGeometryBasedOnFontmetrics sets the minimum unit of window geometry change
 ## to the width and height values specified by font metrics.
-## When enabled, maximization with the GonvimMaximize command may not work well due to 
+## When enabled, maximization with the GonvimMaximize command may not work well due to
 ## the combination of screen size and font metrics.
 # WindowGeometryBasedOnFontmetrics = false
 
@@ -60,12 +60,12 @@ RestoreWindowGeometry = false
 ## Editor external font-family, font-siz.
 ## This is the font settings of the graphical UI as an nvim front end.
 ## Fontfamily is
-## In MacOS, 
+## In MacOS,
 # FontFamily = "Monaco"
 ## In Linux
 # FontFamily = "Consolas"
 ## In Windows
-FontFamily = "HackGen35Console"
+# FontFamily = "Source Code Pro Semibold"
 ## Fontsize is
 # FontSize = 9
 ## letterspace is
@@ -105,15 +105,15 @@ FontFamily = "HackGen35Console"
 ## This option specifies a list of modes in which the IME is to be enabled, and goneovim will enable
 ## the IME only in those modes.
 ## It may be useful for users who use the input method editor (e.g. East Asian users).
-## e.g. 
+## e.g.
 ## ModeEnablingIME = ["insert", "cmdline_normal"]
 ## The available mode strings:
 ##   "normal", "insert", "replace", "visual", "visual_select",
 ##    "cmdline_normal", "cmdline_insert", "cmdline_replace", etc.
 # ModeEnablingIME = []
 
-## This option allows you to hide the mouse cursor in the gooneovim window 
-## when you type a key, and to redisplay it when you move the mouse cursor again. 
+## This option allows you to hide the mouse cursor in the gooneovim window
+## when you type a key, and to redisplay it when you move the mouse cursor again.
 # HideMouseWhenTyping = false
 
 ## Draw borders on the GUI side instead of the vertical border and status line that nvim draws.
@@ -183,7 +183,7 @@ SmoothScroll = true
 # DiffChangePattern = 1
 
 ## Extra Dock menu option in MacOS
-## You can add a menu with your own command options 
+## You can add a menu with your own command options
 # [Editor.DockmenuActions]
 # hoge = "-u NONE"
 # fuga = "-u NORC"
@@ -260,19 +260,14 @@ SmoothScroll = true
 ## The following options specify whether to display a dedicated column in the popupmenu
 ## to display the long text displayed in the `info` part.
 # ShowDetail = true
- 
 ## total number to display item
 # Total = 20
- 
 ## width of `menu` column
 # MenuWidth = 400
- 
 ## width of `info` column
 # InfoWidth = 1
- 
 ## width of `detail` column
 # DetailWidth = 250
- 
 ## Show digit number which can select item for popupmenu
 # ShowDigit = true
 
