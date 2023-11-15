@@ -16,7 +16,7 @@ class White
   if File.exist?(File.expand_path('~/.goneovim/settings.toml'))
     puts 'There is already a files, ruby does nothing.'
   else
-    FileUtils.cp(['./goneovim/settings.toml'], File.expand_path('~/.goneovim'))
+    FileUtils.cp(['./settings.toml'], File.expand_path('~/.goneovim'))
     puts 'The specified file has been extracted.'
   end
 
