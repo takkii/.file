@@ -9,7 +9,13 @@ vim.g['python3_host_prog'] = 'C:/Python3/python.exe'
 vim['dynamic_python_dll'] = 'C:/Python3/python.dll'
 
 -- Ruby3, custom path.
-vim.g['ruby_host_prog'] = 'C:/current_ruby/3.2.2/bin/neovim-ruby-host'
+if vim.fn.isdirectory('C:/current_ruby/3.2.2') == 1 then
+  vim.g['ruby_host_prog'] = 'C:/current_ruby/3.2.2/bin/neovim-ruby-host'
+elseif vim.fn.isdirectory('C:/Ruby3') == 1 then
+  vim.g['ruby_host_prog'] = 'C:/Ruby3/bin/neovim-ruby-host'
+else
+  -- RubyInstaller2 Install Custom PATH, here
+end
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
