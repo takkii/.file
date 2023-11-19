@@ -12,11 +12,21 @@ class White
 
   def self.magic
   encoding_style
+
   if File.exist?(File.expand_path('~/AppData/Local/nvim/init.vim'))
     FileUtils.rm_rf(File.expand_path('~/AppData/Local/nvim/init.vim'))
     puts 'The file exists, so I deleted it.'
+  elsif File.exist?(File.expand_path('~/.config/nvim/init.vim'))
+    FileUtils.rm_rf(File.expand_path('~/.config/nvim/init.vim'))
+    puts 'The file exists, so I deleted it.'
   end
+
+  if File.exist?(File.expand_path('~/AppData/Local/nvim/init.vim'))
     myhome = File.expand_path('~/AppData/Local/nvim/init.vim')
+  elsif File.exist?(File.expand_path('~/.config/nvim/init.vim'))
+    myhome = File.expand_path('~/.config/nvim/init.vim')
+  end
+
     File.open(myhome, 'a:utf-8', perm = 0o777) do |f|
       f.puts <<-DOC
 " ddc_vim
