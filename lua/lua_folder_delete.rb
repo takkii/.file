@@ -2,6 +2,7 @@
 #!/usr/bin/ruby
 
 require 'fileutils'
+require 'rbconfig'
 
 # Installer runner.
 class UnInstallerRunner
@@ -13,8 +14,22 @@ class UnInstallerRunner
 
   def self.run
     encoding_style
-    FileUtils.rm_rf(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-    puts 'The specified folder has been deleted.'
+
+    host_os = RbConfig::CONFIG['host_os']
+    case host_os
+    when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+      FileUtils.rm_rf(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+      puts 'The specified folder has been deleted.'
+    when /darwin|mac os/
+      # Folder PATH, here.
+    when /linux/
+      if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
+        puts 'There is already a folder, ruby does nothing.'
+      else
+        FileUtils.rm_rf([File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/appearance.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/himekuri.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/settings.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/path_settings.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/runtimepath.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/spring_load.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/vim-com.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/vim-plug.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/ware_settings.lua')])
+        puts 'The specified file has been extracted.'
+      end
+    end
   end
 end
 
