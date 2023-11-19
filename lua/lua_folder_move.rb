@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'open3'
 require 'fileutils'
+require 'open3'
+require 'rbconfig'
 
 class White
   # default encoding utf-8, change encode here.
@@ -11,16 +12,28 @@ class White
   end
 
   def self.magic
-  encoding_style
+    encoding_style
 
-  if Dir.exist?(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-    puts 'There is already a folder, ruby does nothing.'
-  else
-    FileUtils.mkdir(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-    FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-    puts 'The specified file has been extracted.'
-  end
-
+    host_os = RbConfig::CONFIG['host_os']
+    case host_os
+    when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+      if Dir.exist?(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+        puts 'There is already a folder, ruby does nothing.'
+      else
+        FileUtils.mkdir(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+        puts 'The specified file has been extracted.'
+      end
+    when /darwin|mac os/
+      # Folder PATH, here.
+    when /linux/
+      if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
+        puts 'There is already a folder, ruby does nothing.'
+      else
+        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/neovim/.deps/usr/share/luajit-2.1'))
+        puts 'The specified file has been extracted.'
+      end
+    end
   end
 end
 
