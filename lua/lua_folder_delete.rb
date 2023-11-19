@@ -23,12 +23,8 @@ class UnInstallerRunner
     when /darwin|mac os/
       # Folder PATH, here.
     when /linux/
-      if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
-        puts 'There is already a folder, ruby does nothing.'
-      else
-        FileUtils.rm_rf([File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/appearance.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/himekuri.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/settings.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/path_settings.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/runtimepath.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/spring_load.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/vim-com.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/vim-plug.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/ware_settings.lua')])
-        puts 'The specified file has been extracted.'
-      end
+      FileUtils.rm_rf([File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/appearance.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/himekuri.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/settings.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/path_settings.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/runtimepath.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/spring_load.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/vim-com.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/vim-plug.lua'), File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/ware_settings.lua')])
+      puts 'The specified file has been extracted.'
     end
   end
 end
