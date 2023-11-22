@@ -52,7 +52,6 @@ Plug 'leoluz/nvim-dap-go'
 Plug 'rcarriga/nvim-dap-ui'
 
 " Make My Plugins.
-Plug 'takkii/config'
 Plug 'takkii/vim-com'
 Plug 'takkii/dps-himekuri'
 Plug 'takkii/neoruby-debugger'
