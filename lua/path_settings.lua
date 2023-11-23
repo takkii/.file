@@ -8,14 +8,15 @@ if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
 vim.g['python3_host_prog'] = 'C:/Python3/python.exe'
 vim['dynamic_python_dll'] = 'C:/Python3/python.dll'
 
--- Ruby3, settings.
+-- Use Scoop, Settings.
 home = os.getenv("HOME")
 if vim.fn.isdirectory(home .. '/scoop/apps/ruby/current') == 1 then
   vim.g['ruby_host_prog'] = home .. '/scoop/apps/ruby/current/gems/bin/neovim-ruby-host'
-elseif vim.fn.isdirectory('C:/Ruby3') == 1 then
-  vim.g['ruby_host_prog'] = 'C:/Ruby3/bin/neovim-ruby-host'
+-- mkdir Ruby3 Folder, into C drive
+-- elseif vim.fn.isdirectory('C:/Ruby3') == 1 then
+--  vim.g['ruby_host_prog'] = 'C:/Ruby3/bin/neovim-ruby-host'
 else
-  -- RubyInstaller2 Install Custom PATH, here
+  -- RubyInstaller2 Install PATH
 end
 
 -- Skip the check of neovim module
