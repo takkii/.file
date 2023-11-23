@@ -8,9 +8,10 @@ if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
 vim.g['python3_host_prog'] = 'C:/Python3/python.exe'
 vim['dynamic_python_dll'] = 'C:/Python3/python.dll'
 
--- Ruby3, custom path.
-if vim.fn.isdirectory('C:/current_ruby/3.2.2') == 1 then
-  vim.g['ruby_host_prog'] = 'C:/current_ruby/3.2.2/bin/neovim-ruby-host'
+-- Ruby3, settings.
+home = os.getenv("HOME")
+if vim.fn.isdirectory(home .. '/scoop/apps/ruby/current') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/scoop/apps/ruby/current/gems/bin/neovim-ruby-host'
 elseif vim.fn.isdirectory('C:/Ruby3') == 1 then
   vim.g['ruby_host_prog'] = 'C:/Ruby3/bin/neovim-ruby-host'
 else
