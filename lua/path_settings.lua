@@ -38,13 +38,13 @@ home = os.getenv("HOME")
 vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
 
 -- Ruby3
-vim.g['ruby_host_prog'] = home .. '/.rbenv/shims/neovim-ruby-host'
+vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
 
 -- denops settings
-vim.g['denops#deno'] = home .. '/.deno/bin/deno'
+vim.g['denops#deno'] = '/usr/local/bin/deno'
 vim.g['denops_disable_version_check'] = 1
 
 
