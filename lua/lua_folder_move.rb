@@ -24,7 +24,12 @@ class White
         puts 'The specified file has been extracted.'
       end
     when /darwin|mac os/
-      # Folder PATH, here.
+    if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
+    puts 'There is already a folder, ruby does nothing.'
+    else
+    FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/neovim/.deps/usr/share/luajit-2.1'))
+    puts 'The specified file has been extracted.'
+    end
     when /linux/
       if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
         puts 'There is already a folder, ruby does nothing.'
