@@ -1,7 +1,41 @@
 -- Lua Settings-Start.
 
+
+
 require('neoruby-debugger').setup()
-require('dap-python').setup('C:/Python3/python.exe')
+
+-- dap-python, Python PATH.
+home = os.getenv("HOME")
+
+    -- Use Python 3.11.x, Not Yet Support Python 3.12.x
+if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
+
+    if vim.fn.isdirectory('C:Python3') == 1 then
+        require('dap-python').setup('C:/Python3/python.exe')
+    elseif vim.fn.isdirectory(home .. '/scoop') == 1 then
+        require('dap-python').setup(home .. '/scoop/apps/python311/current/python.exe')
+    end
+
+elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
+
+    if vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+        require('dap-python').setup(home .. '/.pyenv/shims/python')
+    elseif vim.fn.isdirectory(home .. '/.anyenv') == 1 then
+        require('dap-python').setup(home .. '/.anyenv/envs/pyenv/shims/python')
+    end
+
+elseif vim.fn.has('linux') == 1 then
+
+    if vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+        require('dap-python').setup(home .. '/.pyenv/shims/python')
+    elseif vim.fn.isdirectory(home .. '/.anyenv') == 1 then
+        require('dap-python').setup(home .. '/.anyenv/envs/pyenv/shims/python')
+    end
+
+else
+    -- other OS, python path is here
+end
+
 require('dap-python').test_runner = 'pytest'
 require('dap-go').setup()
 require('dapui').setup()
