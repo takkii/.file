@@ -2,12 +2,10 @@
 
 if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
 
--- Windows settings.
+-- Windows settings use scoop.
 
 -- Home
 home = os.getenv("HOME")
-
--- Use Scoop, Settings.
 
 -- Python3
 if vim.fn.isdirectory(home .. '/scoop/apps/python311/current') == 1 then
@@ -39,63 +37,107 @@ vim.g['denops_disable_version_check'] = 1
 
 elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
 
--- MacOS rbenv settings.
+-- MacOS settings.
 
 -- Home
 home = os.getenv("HOME")
 
 -- Python3
-vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
+if vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+  vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
+else
+  -- Python3 Install PATH
+end
 
 -- Ruby3
-vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+else
+  -- Ruby Install PATH
+end
+
+-- Deno
+if vim.fn.isdirectory('/usr/local/bin') == 1 then
+  vim.g['denops#deno'] = '/usr/local/bin/deno'
+else
+  -- Deno Install PATH
+end
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
 
 -- denops settings
-vim.g['denops#deno'] = '/usr/local/bin/deno'
 vim.g['denops_disable_version_check'] = 1
 
 
 elseif vim.fn.has('linux') == 1 then
 
--- linux kernel anyenv settings.
+-- linux kernel settings
 
 -- Home
 home = os.getenv("HOME")
 
 -- Python3
-vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
+  vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+else
+  -- Python3 Install PATH
+end
 
 -- Ruby3
-vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+else
+  -- Ruby Install PATH
+end
+
+-- Deno
+if vim.fn.isdirectory(home .. '/.deno') == 1 then
+  vim.g['denops#deno'] = home .. '/.deno/bin/deno'
+else
+  -- Deno Install PATH
+end
+
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
 
 -- denops settings
-vim.g['denops#deno'] = home .. '/.deno/bin/deno'
 vim.g['denops_disable_version_check'] = 1
 
 else
 
--- else anyenv settings.
+-- else settings = linux kernel settings
 
 -- Home
 home = os.getenv("HOME")
 
 -- Python3
-vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
+  vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+else
+  -- Python3 Install PATH
+end
 
 -- Ruby3
-vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+else
+  -- Ruby Install PATH
+end
+
+-- Deno
+if vim.fn.isdirectory(home .. '/.deno') == 1 then
+  vim.g['denops#deno'] = home .. '/.deno/bin/deno'
+else
+  -- Deno Install PATH
+end
+
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
 
 -- denops settings
-vim.g['denops#deno'] = home .. '/.deno/bin/deno'
 vim.g['denops_disable_version_check'] = 1
 
 end
