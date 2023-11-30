@@ -39,7 +39,7 @@ end
 require('dap-python').test_runner = 'pytest'
 require('dap-go').setup()
 require('dapui').setup()
-require('ddc_nvim_lsp_setup').setup()
+require('ddc_source_lsp_setup').setup()
 
 local mason = require('mason')
 local lspconfig = require('lspconfig')
