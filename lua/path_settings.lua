@@ -43,7 +43,9 @@ elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
 home = os.getenv("HOME")
 
 -- Python3
-if vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
+  vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+elseif vim.fn.isdirectory(home .. '/.pyenv') == 1 then
   vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
 else
   -- Python3 Install PATH
@@ -52,6 +54,8 @@ end
 -- Ruby3
 if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
   vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+elseif vim.fn.isdirectory(home .. '/.rbenv') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/.rbenv/shims/neovim-ruby-host'
 else
   -- Ruby Install PATH
 end
@@ -59,6 +63,8 @@ end
 -- Deno
 if vim.fn.isdirectory('/usr/local/bin') == 1 then
   vim.g['denops#deno'] = '/usr/local/bin/deno'
+elseif vim.fn.isdirectory(home .. '/.deno') == 1 then
+  vim.g['denops#deno'] = home .. '/.deno/bin/deno'
 else
   -- Deno Install PATH
 end
@@ -80,6 +86,8 @@ home = os.getenv("HOME")
 -- Python3
 if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
   vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+elseif vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+  vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
 else
   -- Python3 Install PATH
 end
@@ -87,12 +95,16 @@ end
 -- Ruby3
 if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
   vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+elseif vim.fn.isdirectory(home .. '/.rbenv') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/.rbenv/shims/neovim-ruby-host'
 else
   -- Ruby Install PATH
 end
 
 -- Deno
-if vim.fn.isdirectory(home .. '/.deno') == 1 then
+if vim.fn.isdirectory('/usr/local/bin') == 1 then
+  vim.g['denops#deno'] = '/usr/local/bin/deno'
+elseif vim.fn.isdirectory(home .. '/.deno') == 1 then
   vim.g['denops#deno'] = home .. '/.deno/bin/deno'
 else
   -- Deno Install PATH
@@ -115,6 +127,8 @@ home = os.getenv("HOME")
 -- Python3
 if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
   vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
+elseif vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+  vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
 else
   -- Python3 Install PATH
 end
@@ -122,12 +136,16 @@ end
 -- Ruby3
 if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
   vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
+elseif vim.fn.isdirectory(home .. '/.rbenv') == 1 then
+  vim.g['ruby_host_prog'] = home .. '/.rbenv/shims/neovim-ruby-host'
 else
   -- Ruby Install PATH
 end
 
 -- Deno
-if vim.fn.isdirectory(home .. '/.deno') == 1 then
+if vim.fn.isdirectory('/usr/local/bin') == 1 then
+  vim.g['denops#deno'] = '/usr/local/bin/deno'
+elseif vim.fn.isdirectory(home .. '/.deno') == 1 then
   vim.g['denops#deno'] = home .. '/.deno/bin/deno'
 else
   -- Deno Install PATH
