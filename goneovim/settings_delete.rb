@@ -2,9 +2,10 @@
 #!/usr/bin/ruby
 
 require 'fileutils'
+require 'rbconfig'
 
-# Installer runner.
-class UnInstallerRunner
+# UnInstall Runner.
+class UnInstallRunner
   # default encoding utf-8, change encode here.
   def self.encoding_style
     Encoding.default_internal = 'UTF-8'
@@ -13,13 +14,28 @@ class UnInstallerRunner
 
   def self.run
     encoding_style
-    FileUtils.rm_rf(File.expand_path('~/.config/goneovim/settings.toml'))
-    puts 'The specified files has been deleted.'
+
+    host_os = RbConfig::CONFIG['host_os']
+    case host_os
+
+    when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+      FileUtils.rm_rf(File.expand_path('~/.config/goneovim'))
+      puts 'The specified folder has been deleted.'
+
+    when /darwin|mac os/
+      FileUtils.rm_rf(File.expand_path('~/.config/goneovim'))
+      puts 'The specified folder has been deleted.'
+
+    when /linux/
+      FileUtils.rm_rf(File.expand_path('~/.config/goneovim'))
+      puts 'The specified folder has been deleted.'
+
+    end
   end
 end
 
 begin
-  UnInstallerRunner.run
+  UnInstallRunner.run
 rescue StandardError => e
   puts e.backtrace
 ensure
