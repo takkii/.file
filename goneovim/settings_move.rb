@@ -4,7 +4,8 @@ require 'open3'
 require 'fileutils'
 require 'rbconfig'
 
-class White
+# Install Runner
+class InstallRunner
   # default encoding utf-8, change encode here.
   def self.encoding_style
     Encoding.default_internal = 'UTF-8'
@@ -12,7 +13,7 @@ class White
   end
 
   # multi platform goneovim settings.
-  def self.magic
+  def self.run
     encoding_style
 
     host_os = RbConfig::CONFIG['host_os']
@@ -49,7 +50,7 @@ class White
 end
 
 begin
-  White.magic
+  InstallRunner.run
 rescue StandardError => e
   puts e.backtrace
 ensure
