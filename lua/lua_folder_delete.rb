@@ -4,8 +4,8 @@
 require 'fileutils'
 require 'rbconfig'
 
-# Installer runner.
-class UnInstallerRunner
+# UnInstall Runner.
+class UnInstallRunner
   # default encoding utf-8, change encode here.
   def self.encoding_style
     Encoding.default_internal = 'UTF-8'
@@ -31,7 +31,7 @@ class UnInstallerRunner
 end
 
 begin
-  UnInstallerRunner.run
+  UnInstallRunner.run
 rescue StandardError => e
   puts e.backtrace
 ensure
