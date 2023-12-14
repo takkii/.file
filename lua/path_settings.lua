@@ -43,9 +43,7 @@ elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
 home = os.getenv("HOME")
 
 -- Python3
-if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
-  vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
-elseif vim.fn.isdirectory(home .. '/.pyenv') == 1 then
+if vim.fn.isdirectory(home .. '/.pyenv') == 1 then
   vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
 else
   -- Python3 Install PATH
