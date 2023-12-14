@@ -61,10 +61,10 @@ else
 end
 
 -- Deno
-if vim.fn.isdirectory('/usr/local/bin') == 1 then
-  vim.g['denops#deno'] = '/usr/local/bin/deno'
-elseif vim.fn.isdirectory(home .. '/.deno') == 1 then
+if vim.fn.isdirectory(home .. '/.deno') == 1 then
   vim.g['denops#deno'] = home .. '/.deno/bin/deno'
+elseif vim.fn.isdirectory('/usr/local/bin') == 1 then
+  vim.g['denops#deno'] = '/usr/local/bin/deno'
 else
   -- Deno Install PATH
 end
@@ -102,10 +102,10 @@ else
 end
 
 -- Deno
-if vim.fn.isdirectory('/usr/local/bin') == 1 then
-  vim.g['denops#deno'] = '/usr/local/bin/deno'
-elseif vim.fn.isdirectory(home .. '/.deno') == 1 then
+if vim.fn.isdirectory(home .. '/.deno') == 1 then
   vim.g['denops#deno'] = home .. '/.deno/bin/deno'
+elseif vim.fn.isdirectory('/usr/local/bin') == 1 then
+  vim.g['denops#deno'] = '/usr/local/bin/deno'
 else
   -- Deno Install PATH
 end
@@ -143,14 +143,13 @@ else
 end
 
 -- Deno
-if vim.fn.isdirectory('/usr/local/bin') == 1 then
-  vim.g['denops#deno'] = '/usr/local/bin/deno'
-elseif vim.fn.isdirectory(home .. '/.deno') == 1 then
+if vim.fn.isdirectory(home .. '/.deno') == 1 then
   vim.g['denops#deno'] = home .. '/.deno/bin/deno'
+elseif vim.fn.isdirectory('/usr/local/bin') == 1 then
+  vim.g['denops#deno'] = '/usr/local/bin/deno'
 else
   -- Deno Install PATH
 end
-
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
