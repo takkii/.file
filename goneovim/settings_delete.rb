@@ -13,7 +13,7 @@ class UnInstallerRunner
 
   def self.run
     encoding_style
-    FileUtils.rm_rf(File.expand_path('~/.goneovim/settings.toml'))
+    FileUtils.rm_rf(File.expand_path('~/.config/goneovim/settings.toml'))
     puts 'The specified files has been deleted.'
   end
 end
