@@ -41,7 +41,6 @@ elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
   set wildmenu
   set wildmode=list:full
   set laststatus=2
-  set guifont=Source\ Code\ Pro\ Semibold\:h11
   set backspace=indent,eol,start
   set encoding=utf-8
 
