@@ -29,8 +29,7 @@ Plug 'Shougo/ddc-converter_remove_overlap'
 " ddc-LSP
 Plug 'Shougo/ddc-ui-native'
 Plug 'Shougo/ddc-source-around'
-Plug 'Shougo/ddc-nvim-lsp'
-Plug 'Shougo/ddc-source-nvim-lsp'
+Plug 'Shougo/ddc-source-lsp'
 
 " nvim-lsp config
 Plug 'neovim/nvim-lspconfig'
