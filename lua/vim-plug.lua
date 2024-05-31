@@ -5,9 +5,6 @@ vim.cmd [[
 " Specify a directory for plugins
 call plug#begin('~/.neovim/plugged')
 
-" Japanese ime
-Plug 'vim-skk/skkeleton'
-
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
