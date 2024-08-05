@@ -49,7 +49,6 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'nvim-neotest/nvim-nio'
 
 " Make My Plugins.
-Plug 'takkii/vim-com'
 Plug 'takkii/dps-himekuri'
 Plug 'takkii/dps-zella'
 Plug 'takkii/neoruby-debugger'

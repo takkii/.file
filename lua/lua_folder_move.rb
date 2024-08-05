@@ -23,7 +23,7 @@ class InstallRunner
         puts 'There is already a folder, ruby does nothing.'
       else
         FileUtils.mkdir(File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
-        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
+        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-plug.lua', './command.lua', './ware_settings.lua'], File.expand_path('~/scoop/apps/neovim/current/bin/lua'))
         puts 'The specified file has been extracted.'
       end
 
@@ -31,7 +31,7 @@ class InstallRunner
       if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
         puts 'There is already a folder, ruby does nothing.'
       else
-        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/neovim/.deps/usr/share/luajit-2.1'))
+        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-plug.lua', './command.lua', './ware_settings.lua'], File.expand_path('~/neovim/.deps/usr/share/luajit-2.1'))
         puts 'The specified file has been extracted.'
       end
 
@@ -39,10 +39,9 @@ class InstallRunner
       if File.exist?(File.expand_path('~/neovim/.deps/usr/share/luajit-2.1/init.lua'))
         puts 'There is already a folder, ruby does nothing.'
       else
-        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-com.lua', './vim-plug.lua', './ware_settings.lua'], File.expand_path('~/neovim/.deps/usr/share/luajit-2.1'))
+        FileUtils.cp(['./init.lua', './appearance.lua', './himekuri.lua', './settings.lua', './path_settings.lua', './runtimepath.lua', './spring_load.lua', './vim-plug.lua', './command.lua', './ware_settings.lua'], File.expand_path('~/neovim/.deps/usr/share/luajit-2.1'))
         puts 'The specified file has been extracted.'
       end
-
     end
   end
 end

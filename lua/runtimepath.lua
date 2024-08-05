@@ -2,5 +2,6 @@
 
 vim.cmd [[
   set runtimepath+=~/defx-icons-ver.takkii
-  set runtimepath+=~/ddc_vim
+  " set runtimepath+=~/GitHub/neoruby-debugger
+  " set runtimepath+=~/GitHub/dps-zella
 ]]

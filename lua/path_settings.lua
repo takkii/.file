@@ -43,29 +43,13 @@ elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
 home = os.getenv("HOME")
 
 -- Python3
-if vim.fn.isdirectory(home .. '/.pyenv') == 1 then
-  vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
-else
-  -- Python3 Install PATH
-end
+vim.g['python3_host_prog'] = vim.g["system('echo -n $(which python3)')"]
 
 -- Ruby3
-if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
-  vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
-elseif vim.fn.isdirectory(home .. '/.rbenv') == 1 then
-  vim.g['ruby_host_prog'] = home .. '/.rbenv/shims/neovim-ruby-host'
-else
-  -- Ruby Install PATH
-end
+vim.g['ruby_host_prog'] = vim.g["system('echo -n $(which neovim-ruby-host)')"]
 
 -- Deno
-if vim.fn.isdirectory(home .. '/.deno') == 1 then
-  vim.g['denops#deno'] = home .. '/.deno/bin/deno'
-elseif vim.fn.isdirectory('/usr/local/bin') == 1 then
-  vim.g['denops#deno'] = '/usr/local/bin/deno'
-else
-  -- Deno Install PATH
-end
+vim.g['denops#deno'] = vim.g["system('echo -n $(which deno)')"]
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
@@ -82,32 +66,13 @@ elseif vim.fn.has('linux') == 1 then
 home = os.getenv("HOME")
 
 -- Python3
-if vim.fn.isdirectory(home .. '/.anyenv/envs/pyenv') == 1 then
-  vim.g['python3_host_prog'] = home .. '/.anyenv/envs/pyenv/shims/python'
-elseif vim.fn.isdirectory(home .. '/.pyenv') == 1 then
-  vim.g['python3_host_prog'] = home .. '/.pyenv/shims/python'
-else
-  -- Python3 Install PATH
-end
+vim.g['python3_host_prog'] = vim.g["system('echo -n $(which python3)')"]
 
 -- Ruby3
-if vim.fn.isdirectory(home .. '/.anyenv/envs/rbenv') == 1 then
-  vim.g['ruby_host_prog'] = home .. '/.anyenv/envs/rbenv/shims/neovim-ruby-host'
-elseif vim.fn.isdirectory(home .. '/.rbenv') == 1 then
-  vim.g['ruby_host_prog'] = home .. '/.rbenv/shims/neovim-ruby-host'
-else
-  -- Ruby Install PATH
-end
+vim.g['ruby_host_prog'] = vim.g["system('echo -n $(which neovim-ruby-host)')"]
 
 -- Deno
-if vim.fn.isdirectory(home .. '/.deno') == 1 then
-  vim.g['denops#deno'] = home .. '/.deno/bin/deno'
-elseif vim.fn.isdirectory('/usr/local/bin') == 1 then
-  vim.g['denops#deno'] = '/usr/local/bin/deno'
-else
-  -- Deno Install PATH
-end
-
+vim.g['denops#deno'] = vim.g["system('echo -n $(which deno)')"]
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
@@ -148,6 +113,9 @@ elseif vim.fn.isdirectory('/usr/local/bin') == 1 then
 else
   -- Deno Install PATH
 end
+
+-- Go
+vim.g['go_bin_path'] = vim.g["system('echo -n $(which go)')"]
 
 -- Skip the check of neovim module
 vim.g['python3_host_skip_check'] = 1
