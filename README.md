@@ -2,5 +2,5 @@
 
 ### .file
 
-> .file is a configuration file for the IDE.
+> .file is Evolve Neovim into an IDE.
 
