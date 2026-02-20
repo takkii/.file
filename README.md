@@ -1,13 +1,6 @@
-### init.vim use ddc.vim.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) 
 
-how to use, [here](https://github.com/takkii/ddc_vim/wiki/README).
+### .file
 
-#### Terminal
+> .file is a configuration file for the IDE.
 
-```markdown
-deno add @std/async
-deno add @std/assert
-deno add @std/internal
-```
-
-_private settings._
