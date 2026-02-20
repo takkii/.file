@@ -72,6 +72,7 @@ vim.g['python3_host_prog'] = vim.g["system('echo -n $(which python3)')"]
 vim.g['ruby_host_prog'] = vim.g["system('echo -n $(which neovim-ruby-host)')"]
 
 -- Deno
+-- vim.g['denops#deno'] = '/usr/local/bin/deno'
 vim.g['denops#deno'] = vim.g["system('echo -n $(which deno)')"]
 
 -- Skip the check of neovim module
