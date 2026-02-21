@@ -98,10 +98,8 @@ local mason_lspconfig = require('mason-lspconfig')
  })
 
 mason_lspconfig.setup()
-if server == "elixirls" then
-	require("lspconfig").elixirls.setup({
-		cmd = { "/home/takkii/.local/share/nvim/mason/bin/elixir-ls" },
-	})
+if server == "elixir-ls" then
+	require("lspconfig").elixirls.setup({})
 
 elseif server == "solargraph" then
 	require("lspconfig").solargraph.setup({})
