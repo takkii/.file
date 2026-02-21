@@ -98,25 +98,26 @@ local mason_lspconfig = require('mason-lspconfig')
  })
 
 mason_lspconfig.setup()
-mason_lspconfig.setup_handlers({
-    function(server_name)
-        lspconfig[server_name].setup({})
-    end,
-    solargraph = function()
-        lspconfig.solargraph.setup({})
-    end,
-    pylsp = function()
-        lspconfig.pylsp.setup({})
-    end,
-    gopls = function()
-        lspconfig.gopls.setup({})
-    end,
-    denols = function()
-        lspconfig.denols.setup({})
-    end,
-    rust_analyzer = function()
-        lspconfig.rust_analyzer.setup({})
-    end,
-})
+if server == "elixirls" then
+	require("lspconfig").elixirls.setup({
+		cmd = { "/home/takkii/.local/share/nvim/mason/bin/elixir-ls" },
+	})
+
+elseif server == "solargraph" then
+	require("lspconfig").solargraph.setup({})
+
+elseif server == "pylsp" then
+	require("lspconfig").pylsp.setup({})
+	
+elseif server == "gopls" then
+	require("lspconfig").gopls.setup({})
+
+elseif server == "denols" then
+	require("lspconfig").denols.setup({})
+
+elseif server == "rust_analyzer" then
+	require("lspconfig").rust_analyzer.setup({})
+
+end
 
 -- Lua Settings-End.

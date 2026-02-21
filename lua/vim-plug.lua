@@ -41,6 +41,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'dense-analysis/ale'
 Plug 'gkeep/iceberg-dark'
 Plug 'cocopon/iceberg.vim'
+Plug 'elixir-editors/vim-elixir'
 
 " Debugger
 Plug 'mfussenegger/nvim-dap'
