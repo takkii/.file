@@ -98,24 +98,20 @@ local mason_lspconfig = require('mason-lspconfig')
  })
 
 mason_lspconfig.setup()
-if server == "elixir-ls" then
-	require("lspconfig").elixirls.setup({})
 
+-- lspconfig Settings.
+if server == "elixirls" then
+  lspconfig.elixirls.setup({})
 elseif server == "solargraph" then
-	require("lspconfig").solargraph.setup({})
-
+  lspconfig.solargraph.setup({})
 elseif server == "pylsp" then
-	require("lspconfig").pylsp.setup({})
-	
+  lspconfig.pylsp.setup({})
 elseif server == "gopls" then
-	require("lspconfig").gopls.setup({})
-
+  lspconfig.gopls.setup({})
 elseif server == "denols" then
-	require("lspconfig").denols.setup({})
-
+  lspconfig.denols.setup({})
 elseif server == "rust_analyzer" then
-	require("lspconfig").rust_analyzer.setup({})
-
+  lspconfig.rust_analyzer.setup({})
 end
 
 -- Lua Settings-End.
