@@ -2,6 +2,10 @@
 
 ### .file
 
-> .file is Evolve Neovim into an IDE.
+```markdown
+.file is Evolve Neovim into an IDE.
+```
 
-※ Needing, [Deno](https://deno.com/) and [Python3](https://www.python.org/downloads/) and [vim-plug](https://github.com/junegunn/vim-plug) ... etc.
+※ Needing, [Deno](https://deno.com/) / [Python3](https://www.python.org/downloads/) / [vim-plug](https://github.com/junegunn/vim-plug) / [HackGen](https://github.com/yuru7/HackGen/releases) / etc.
+
+> Please add any missing libraries or languages to your environment yourself.
