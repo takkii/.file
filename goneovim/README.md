@@ -1,6 +1,6 @@
 ### PATH
 
 ```markdown
-# Set
+# Copy file to the specified path.
 ~/.config/goneovim/settings.toml
 ```
