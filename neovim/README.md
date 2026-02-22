@@ -13,6 +13,7 @@ git clone git@github.com:takkii/ddc_spring_load.git
 ```
 
 ```shell
+# Settings, Windows/Unix for PATH
 if filereadable(expand('~/.file/lua/init.lua'))
   lua require('init')
 endif
