@@ -100,18 +100,46 @@ local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup()
 
 -- lspconfig Settings.
-if server == "elixirls" then
-  lspconfig.elixirls.setup({})
-elseif server == "solargraph" then
-  lspconfig.solargraph.setup({})
-elseif server == "pylsp" then
-  lspconfig.pylsp.setup({})
-elseif server == "gopls" then
-  lspconfig.gopls.setup({})
-elseif server == "denols" then
-  lspconfig.denols.setup({})
-elseif server == "rust_analyzer" then
-  lspconfig.rust_analyzer.setup({})
-end
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+})
+
+vim.lsp.config('elixirls', {
+  settings = {
+    ['elixirls'] = {},
+  },
+})
+
+vim.lsp.config('solargraph', {
+  settings = {
+    ['solargraph'] = {},
+  },
+})
+
+vim.lsp.config('pylsp', {
+  settings = {
+    ['pylsp'] = {},
+  },
+})
+
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+})
+
+vim.lsp.config('gopls', {
+  settings = {
+    ['gopls'] = {},
+  },
+})
+
+vim.lsp.config('denols', {
+  settings = {
+    ['denols'] = {},
+  },
+})
 
 -- Lua Settings-End.
