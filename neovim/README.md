@@ -13,13 +13,9 @@ if filereadable(expand('~/.file/lua/init.lua'))
 endif
 ```
 
-```shell
-# Clone from github
-cd $HOME
-git clone git@github.com:takkii/ddc_spring_load.git
-```
+※ Please moving init.vim file to path.
 
-※ Please moving init.vim file and ddc_spring_load project folder to path.
+_Already,  now no needing is ddc_spring_load project._
 
 
 
