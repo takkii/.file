@@ -3,7 +3,7 @@
 require('runtimepath')
 require('ware_settings')
 require('vim-plug')
-require('spring_load')
+require('neo_word')
 require('himekuri')
 require('command')
 require('path_settings')
