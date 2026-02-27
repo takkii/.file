@@ -75,7 +75,7 @@ autocmd FileType defx call s:defx_my_settings()
       \ defx#do_action('change_vim_cwd')
     endfunction
 
-" defx-icons-ver.takkii
+" defx-icons
 let g:defx_icons_enable_syntax_highlight = 1
 let g:defx_icons_column_length = 2
 let g:defx_icons_directory_icon = '📁'
