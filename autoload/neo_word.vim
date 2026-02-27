@@ -40,7 +40,7 @@ call ddc#custom#patch_global(#{
       \   converters: ['converter_remove_overlap'],
       \ },
       \ around: #{
-      \   mark: 'spring_load',
+      \   mark: 'neo_word',
       \ },
       \ file: #{
       \   mark: 'file',
