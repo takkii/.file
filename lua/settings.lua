@@ -1,6 +1,7 @@
 -- Lua Settings-Start.
 
 require('neoruby-debugger').setup()
+require('psycho').setup()
 
 -- Elixir Settings.
 local dap = require("dap")
