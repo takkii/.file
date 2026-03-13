@@ -53,7 +53,7 @@ Plug 'nvim-neotest/nvim-nio'
 " Make My Plugins.
 Plug 'takkii/dps-himekuri'
 Plug 'takkii/dps-zella'
-Plug 'takkii/neoruby-debugger'
+Plug 'takkii/cross'
 Plug 'takkii/psycho'
 
 " Initialize plugin system
