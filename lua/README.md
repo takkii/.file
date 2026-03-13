@@ -8,11 +8,15 @@
 ~/neovim/.deps/usr/share/luajit-2.1
 /usr/share/luajit-2.1
 
-# Example for Mac | Unix.
+# Copy Settings file.
 cd $HOME
 git clone git@github.com:takkii/.file.git
 cd ~/.file/lua
 cp ./*.lua ~/neovim/.deps/usr/share/luajit-2.1
+
+# Delete Settings file.
+cd ~/neovim/.deps/usr/share/luajit-2.1
+rm -rf ./*.lua
 
 # Copy, this name file.
 init.lua appearance.lua himekuri.lua settings.lua path_settings.lua

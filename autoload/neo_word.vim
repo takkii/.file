@@ -40,7 +40,7 @@ call ddc#custom#patch_global(#{
       \   converters: ['converter_remove_overlap'],
       \ },
       \ around: #{
-      \   mark: 'neo_word',
+      \   mark: 'neo_around_word',
       \ },
       \ file: #{
       \   mark: 'file',
