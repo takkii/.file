@@ -1,6 +1,6 @@
 -- Lua Settings-Start.
 
-require('neoruby-debugger').setup()
+require('cross').setup()
 require('psycho').setup()
 
 -- Elixir Settings.
