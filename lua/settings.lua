@@ -1,7 +1,7 @@
 -- Lua Settings-Start.
 
 require('cross').setup()
-require('psycho').setup()
+require('zoltraak').setup()
 
 -- Elixir Settings.
 local dap = require("dap")
