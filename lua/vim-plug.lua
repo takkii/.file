@@ -54,7 +54,7 @@ Plug 'nvim-neotest/nvim-nio'
 Plug 'takkii/dps-himekuri'
 Plug 'takkii/dps-zella'
 Plug 'takkii/cross'
-Plug 'takkii/psycho'
+Plug 'takkii/zoltraak'
 
 " Initialize plugin system
 call plug#end()
