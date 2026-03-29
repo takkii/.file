@@ -2,5 +2,5 @@
 
 vim.cmd [[
   " set runtimepath+=~/GitHub/cross
-  " set runtimepath+=~/GitHub/dps-zella
+  " set runtimepath+=~/GitHub/zoltraak
 ]]

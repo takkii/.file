@@ -6,11 +6,21 @@ require('zoltraak').setup()
 -- Elixir Settings.
 local dap = require("dap")
 
-dap.adapters.mix_task = {
-  type = 'executable',
-  command = vim.fn.stdpath("data") .. '/mason/bin/elixir-ls-debugger';
-  args = {}
-}
+-- Settings for each environment with a different OS.
+if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
+  dap.adapters.mix_task = {
+    type = 'executable',
+    command = vim.fn.stdpath("data") .. '/mason/bin/elixir-ls-debugger.cmd';
+    args = {}
+  }
+else
+  dap.adapters.mix_task = {
+    type = 'executable',
+    command = vim.fn.stdpath("data") .. '/mason/bin/elixir-ls-debugger';
+    args = {}
+  }
+end
+
 dap.configurations.elixir = {
   {
     type = "mix_task",
