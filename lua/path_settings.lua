@@ -8,9 +8,9 @@ if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
 home = os.getenv("HOME")
 
 -- Python3
-if vim.fn.isdirectory(home .. '/scoop/apps/python311/current') == 1 then
-  vim.g['python3_host_prog'] = home .. '/scoop/apps/python311/current/python.exe'
-  vim['dynamic_python_dll'] = home .. '/scoop/apps/python311/current/python3.dll'
+if vim.fn.isdirectory(home .. '/scoop/apps/python313/current') == 1 then
+  vim.g['python3_host_prog'] = home .. '/scoop/apps/python313/current/python.exe'
+  vim['dynamic_python_dll'] = home .. '/scoop/apps/python313/current/python3.dll'
 else
   -- Python3 Installer PATH
 end
