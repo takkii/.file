@@ -46,7 +46,7 @@ if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
     if vim.fn.isdirectory('C:Python3') == 1 then
         require('dap-python').setup('C:/Python3/python.exe')
     elseif vim.fn.isdirectory(home .. '/scoop') == 1 then
-        require('dap-python').setup(home .. '/scoop/apps/python311/current/python.exe')
+        require('dap-python').setup(home .. '/scoop/apps/python313/current/python.exe')
     end
 
 elseif vim.fn.has('osxdarwin') == 1 or vim.fn.has('osx') == 1 then
