@@ -1,6 +1,5 @@
 -- Lua Settings-Start.
 
--- require('cross').setup()
 require('zoltraak').setup()
 
 -- Elixir Settings.
