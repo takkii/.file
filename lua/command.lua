@@ -2,8 +2,8 @@
 
 vim.cmd [[
 
-if filereadable(expand('~/.neovim/plugged/cross/plugins/command.vim'))
-  source ~/.neovim/plugged/cross/plugins/command.vim
+if filereadable(expand('~/.neovim/plugged/zoltraak/plugins/command.vim'))
+  source ~/.neovim/plugged/zoltraak/plugins/command.vim
 endif
 
 ]]
