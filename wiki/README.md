@@ -43,7 +43,7 @@ runtimepath.lua neo_word.lua vim-plug.lua command.lua ware_settings.lua
 ※ Please Linux Command Run.
 ```
 
-[neovim](https://github.com/neovim/neovim/releases) | [neovim手動ビルド](https://gist.github.com/takkii/b7f7faa81b4ddf5a35ca40dae284538b)
+[neovim](https://github.com/neovim/neovim/releases) | [neovim手動ビルド](https://gist.github.com/takkii/b7f7faa81b4ddf5a35ca40dae284538b) | [goneovim](https://github.com/akiyosi/goneovim/releases) | [zonvie](https://github.com/akiyosi/zonvie/releases)
 
 ※ その他、環境構築はGoogle検索などで完了してください。
 
