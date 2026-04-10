@@ -1,30 +1,21 @@
 ### .file/lua
 
 ```markdown
-# 日本語編
-
-# Windows/luaフォルダ作成、scoop/neovimを利用
-C:\Users\user\scoop\apps\neovim\current\bin\lua
-cd ~/scoop/apps/neovim/current/bin
+# Windows, use scoop.
+# ~/scoop/apps/neovim/current/bin
 mkdir lua
 cd
-
-# Windows/.fileフォルダの複製先($HOME)、luaフォルダを展開
 cd .file/lua
 cp ~/*.lua ~/scoop/apps/neovim/current/bin/lua
 
-# UNIX/neovimフォルダの複製先($HOME)、luaフォルダを展開
+# Unix, GitHub/neovim
+# ~/neovim/.deps/usr/share/luajit-2.1
+# /usr/share/luajit-2.1
+
+cd $HOME
+git clone git@github.com:neovim/neovim.git
 cd .file/lua
 cp ./*.lua ~/neovim/.deps/usr/share/luajit-2.1
-
-# English version.
-
-# Windows
-~/scoop/apps/neovim/current/bin/lua
-
-# Mac | Unix
-~/neovim/.deps/usr/share/luajit-2.1
-/usr/share/luajit-2.1
 
 # Copy Settings file.
 cd $HOME
@@ -33,7 +24,10 @@ cd ~/.file/lua
 cp ./*.lua ~/neovim/.deps/usr/share/luajit-2.1
 
 # Delete Settings file.
+/usr/share/luajit-2.1
 cd ~/neovim/.deps/usr/share/luajit-2.1
+cd ~/scoop/apps/neovim/current/bin
+
 rm -rf ./*.lua
 
 # Copy, this name file.
@@ -43,9 +37,9 @@ runtimepath.lua neo_word.lua vim-plug.lua command.lua ware_settings.lua
 ※ Please Linux Command Run.
 ```
 
-[neovim](https://github.com/neovim/neovim/releases) | [neovim手動ビルド](https://gist.github.com/takkii/b7f7faa81b4ddf5a35ca40dae284538b) | [goneovim](https://github.com/akiyosi/goneovim/releases) | [zonvie](https://github.com/akiyosi/zonvie/releases)
+[neovim](https://github.com/neovim/neovim/releases) | [neovim_build](https://gist.github.com/takkii/b7f7faa81b4ddf5a35ca40dae284538b) | [goneovim](https://github.com/akiyosi/goneovim/releases) | [zonvie](https://github.com/akiyosi/zonvie/releases)
 
-※ その他、環境構築はGoogle検索などで完了してください。
+※ Other environment construction, Please search google.
 
 ### .file/goneovim
 
