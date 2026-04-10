@@ -1,7 +1,7 @@
 ### .file/lua
 
 ```markdown
-# Japanese version.
+# 日本語編
 
 # Windows/luaフォルダ作成、scoop/neovimを利用
 C:\Users\user\scoop\apps\neovim\current\bin\lua
@@ -43,17 +43,28 @@ runtimepath.lua neo_word.lua vim-plug.lua command.lua ware_settings.lua
 ※ Please Linux Command Run.
 ```
 
-_※ deno/rust/elixir/erlangなどの環境構築は省略します。_
+_※ /deno/rust/elixir/erlangなどの環境構築は省略します。_
 
 ### .file/goneovim
 
 ```markdown
-# Copy file to the specified path.
+# Goneovim, near default settings.
 cd ~/.config
 mkdir goneovim
 cd
 cd .file/goneovim
 cp settings.toml ~/.config/goneovim
+```
+
+### .file/zonvie
+
+```markdown
+# Zonvie, defatult settings.
+cd ~/.config
+mkdir zonvie
+cd
+cd .file/zonvie
+cp config.toml ~/.config/zonvie
 ```
 
 ### touch .init.vim
