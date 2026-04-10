@@ -43,7 +43,9 @@ runtimepath.lua neo_word.lua vim-plug.lua command.lua ware_settings.lua
 ※ Please Linux Command Run.
 ```
 
-_※ /deno/rust/elixir/erlangなどの環境構築は省略します。_
+[neovim](https://github.com/neovim/neovim/releases) | [neovim手動ビルド](https://gist.github.com/takkii/b7f7faa81b4ddf5a35ca40dae284538b)
+
+※ その他、環境構築はGoogle検索などで完了してください。
 
 ### .file/goneovim
 
