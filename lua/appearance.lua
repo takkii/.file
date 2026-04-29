@@ -19,6 +19,7 @@ vim.cmd [[
   set laststatus=2
   set backspace=indent,eol,start
   set encoding=utf-8
+  set guifont=HackGen35\ Console\ NF:h10:sb
 
   cd ~
 ]]
@@ -93,4 +94,3 @@ else
   ]]
 
 end
-
