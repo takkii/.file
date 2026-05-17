@@ -42,6 +42,7 @@ Plug 'dense-analysis/ale'
 Plug 'gkeep/iceberg-dark'
 Plug 'cocopon/iceberg.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'cohama/lexima.vim'
 
 " Debugger
 Plug 'mfussenegger/nvim-dap'
