@@ -11,6 +11,9 @@ patch -u /mnt/c/Users/sudok/AppData/Local/nvim-data/mason/packages/solargraph/ge
 
 # パッチを適用② (rbs-4.0.3)
 patch -u /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb < environment_loader.patch
+
+# パッチを適用③ (Ubuntu/rbs-4.0.3)
+patch -u ~/.local/share/nvim/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb < environment_loader.patch
 ```
 
 _※ Windows11のWSL2環境でパッチ適用を推奨します。_
