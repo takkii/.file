@@ -2,7 +2,7 @@
 
 ```markdown
 # Windows, use scoop.
-# ~/scoop/apps/neovim/current/bin
+cd ~/scoop/apps/neovim/current/bin
 mkdir lua
 cd
 cd .file/lua
@@ -62,6 +62,8 @@ cd
 cd .file/zonvie
 cp config.toml ~/.config/zonvie
 ```
+
+※ There is an issue where config.toml is not read in certain Windows environments.
 
 ### touch .init.vim
 
