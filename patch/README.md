@@ -20,8 +20,8 @@ patch -u ~/.local/share/nvim/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/en
 
 > /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/solargraph-0.60.1/lib/solargraph/library.rb
 >
-> next_map: can't add a new key into hash during iteration (RuntimeError)
+>:487:in 'Solargraph::Library#next_map': can't add a new key into hash during iteration (RuntimeError)
 
-※ rubygem/solargraph、上記メッセージがたまにありますが動作はします。
+※ rubygems/solargraph、上記メッセージがlsp.logに何度が残っていますが動作します。
 
 更新履歴: 2026/06/23🔄
