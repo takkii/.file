@@ -1,6 +1,6 @@
 ### 修正パッチ配布
 
-_※ 現在は、パッチがなくても動作します。不要です。_
+_※ 現在、パッチを適用しなくても動作し不要になりました。_
 
 ```markdown
 cd .file/patch
@@ -22,6 +22,6 @@ patch -u ~/.local/share/nvim/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/en
 >
 >:487:in 'Solargraph::Library#next_map': can't add a new key into hash during iteration (RuntimeError)
 
-※ rubygems/solargraph、上記メッセージがlsp.logに何度が残っていますが動作します。
+※ rubygems/solargraph、LSPを起動すると度々lsp.logにRuntimeErrorが残っています。
 
 更新履歴: 2026/06/23🔄
