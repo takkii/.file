@@ -41,6 +41,7 @@ patch -u ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1/li
 - UNIX環境、Hyper-V上のUbuntu-24.04でenvironment_loader.patchを検証しました。✅️
 
 - スレッドセーフと排他的制御にする変更をlibrary.patchにしました。✅️
+
   ※ library.patchはsolargraphを高速化しますが、lsp.logを肥大化させます。
 
   必要に応じて、適用したパッチを元に戻しlsp.logを初期化してください。
