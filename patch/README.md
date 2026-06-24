@@ -55,7 +55,7 @@ cp lsp.log ~/.local/state/nvim/logs/backup
 _念のため、バックアップをlsp.logに取る方法も書きます。_
 
 ```markdown
-# 例えば、初期化することためには。
+# 例えば、初期化するためには。
 cd ~/.local/state/nvim/logs/
 rm -rf lsp.log
 touch lsp.log
