@@ -39,9 +39,9 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 >
 > ~/.local/state/nvim/logs/lsp.log
 
-- Windows環境、WSL2でenvironment_loader.patchを検証しました。(C:/Users/ユーザ名/)。✅️
+- Windows環境、WSL2でenvironment_loader.patchを[検証](https://github.com/takkii/.file/blob/main/patch/origin/environment_loader.rb#L4)しました。(C:/Users/ユーザ名/)。✅️
 
-- UNIX環境、Hyper-V上のUbuntu-24.04でenvironment_loader.patchを検証しました。✅️
+- UNIX環境、Hyper-V上のUbuntu-24.04でenvironment_loader.patchを[検証](https://github.com/takkii/.file/blob/main/patch/origin/environment_loader.rb#L4)しました。✅️
 
 - スレッドセーフと排他的制御にする[変更](https://github.com/takkii/.file/blob/main/patch/origin/library.rb#L482)をlibrary.patchにしました。✅️
 
