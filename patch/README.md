@@ -37,6 +37,8 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 
 > C:/Users/user/AppData/Local/nvim-data/lsp.log
 >
+> ~/.local/state/nvim/lsp.log
+>
 > ~/.local/state/nvim/logs/lsp.log
 
 - Windows環境、WSL2でenvironment_loader.patchを[検証](https://github.com/takkii/.file/blob/main/patch/origin/environment_loader.rb#L4)しました。(C:/Users/ユーザ名/)。✅️
@@ -51,6 +53,10 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 
 ```markdown
 # 例えば、lsp.logを複製するには。
+cd ~/.local/state/nvim/
+mkdir backup
+cp lsp.log ~/.local/state/nvim/backup
+
 cd ~/.local/state/nvim/logs/
 mkdir backup
 cp lsp.log ~/.local/state/nvim/logs/backup
@@ -60,6 +66,10 @@ cp lsp.log ~/.local/state/nvim/logs/backup
 
 ```markdown
 # 例えば、lsp.logをクリアにするには。
+cd ~/.local/state/nvim/
+rm -rf lsp.log
+touch lsp.log
+
 cd ~/.local/state/nvim/logs/
 rm -rf lsp.log
 touch lsp.log
@@ -67,4 +77,4 @@ touch lsp.log
 
 _※ lsp.log内を全削除することが前提です。_
 
-更新履歴: 2026/06/24🔄
+更新履歴: 2026/06/25🔄
