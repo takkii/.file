@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../images/karamatsu.gif">
+</div>
+
 ### 修正パッチ配布
 
 _※ 個人的パッチです。検討するかは各自の判断でお願いします。_
@@ -41,26 +45,26 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 
 - スレッドセーフと排他的制御にする[変更](https://github.com/takkii/.file/blob/main/patch/origin/library.rb#L482)をlibrary.patchにしました。✅️
 
-  ※ library.patchはsolargraphを高速化しますが、lsp.logを肥大化させます。
+  ※ library.patchはsolargraphを高速化しますが、lsp.log内を肥大化させます。
 
-  必要に応じて、適用したパッチを元に戻しlsp.logを初期化してください。
+  必要に応じて、適用したパッチを元に戻しlsp.log内を全削除してください。
 
 ```markdown
-# 例えば、バックアップを取るためには。
+# 例えば、lsp.logを複製するには。
 cd ~/.local/state/nvim/logs/
 mkdir backup
 cp lsp.log ~/.local/state/nvim/logs/backup
 ```
 
-_念のため、バックアップをlsp.logに取る方法も書きます。_
+※ _必要ならば、lsp.logの複製をbackupフォルダーに入れます。_
 
 ```markdown
-# 例えば、初期化するためには。
+# 例えば、lsp.logをクリアにするには。
 cd ~/.local/state/nvim/logs/
 rm -rf lsp.log
 touch lsp.log
 ```
 
-_※ lsp.logの中身を空っぽにすることが前提です。_
+_※ lsp.log内を全削除することが前提です。_
 
 更新履歴: 2026/06/24🔄
