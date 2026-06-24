@@ -46,6 +46,7 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
   必要に応じて、適用したパッチを元に戻しlsp.logを初期化してください。
 
 ```markdown
+# 例えば、バックアップを取るためには。
 cd ~/.local/state/nvim/logs/
 mkdir backup
 cp lsp.log ~/.local/state/nvim/logs/backup
