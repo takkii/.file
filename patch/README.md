@@ -3,17 +3,15 @@
 _※ 個人的パッチです。検討するかは各自の判断でお願いします。_
 
 ```markdown
+# Folder PATH
 cd .file/patch
 
-# PATH
+# patch PATH
 /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb
 /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/solargraph-0.60.1/lib/solargraph/library.rb
 
-# パッチを生成
-cd origin
+# パッチを生成 (./file/patch/origin)
 diff -u /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb environment_loader.rb > environment_loader.patch
-
-cd origin
 diff -u /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/solargraph-0.60.1/lib/solargraph/library.rb library.rb > library.patch
 
 # パッチを適用 (Windows)
@@ -24,11 +22,12 @@ patch -u /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gem
 patch -u ~/.local/share/nvim/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb < environment_loader.patch
 patch -u ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1/lib/solargraph/library.rb < library.patch
 
-# パッチを元に戻す (各環境)
+# パッチを元に戻す (Windows)
 patch -u -R /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb < environment_loader.patch
-patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb < environment_loader.patch
-
 patch -u -R /mnt/c/Users/user/AppData/Local/nvim-data/mason/packages/solargraph/gems/solargraph-0.60.1/lib/solargraph/library.rb < library.patch
+
+# パッチを元に戻す (UNIX)
+patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/rbs-4.0.3/lib/rbs/environment_loader.rb < environment_loader.patch
 patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1/lib/solargraph/library.rb < library.patch
 ```
 
