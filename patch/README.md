@@ -33,7 +33,7 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 
 > C:/Users/user/AppData/Local/nvim-data/lsp.log
 >
-> ~/.local/state/nvim/lsp.log
+> ~/.local/state/nvim/logs/lsp.log
 
 - Windows環境、WSL2でenvironment_loader.patchを検証しました。(C:/Users/ユーザ名/)。✅️
 
@@ -45,5 +45,13 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 
   必要に応じて、適用したパッチを元に戻しlsp.logを初期化してください。
 
+```markdown
+# 例えば、初期化することためには。
+cd ~/.local/state/nvim/logs/lsp.log
+rm -rf lsp.log
+touch lsp.log
+```
+
+_※ lsp.logの中身を空っぽにすることが前提です。_
 
 更新履歴: 2026/06/24🔄
