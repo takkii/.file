@@ -24,4 +24,6 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 
 [junegunn/vim-plug](https://github.com/junegunn/vim-plug) | [hackgen_release](https://github.com/yuru7/HackGen/releases) | [deno_windows_install](https://docs.deno.com/runtime/getting_started/installation/)
 
+**Please manually adjust the environment variables separately.**
+
 _※ ChangeLogs: 2026/07/03🔄_
