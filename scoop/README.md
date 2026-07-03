@@ -3,7 +3,15 @@
 _※ Please add any missing libraries or languages to your environment yourself🏴_
 
 ```sh
+# https://rust-lang.org/ja/tools/install/
+# Windows11
+wget https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe
+
+# WSL2
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # https://scoop.sh/
+# scoop install
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
