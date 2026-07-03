@@ -1,1 +1,0 @@
-scoop install python313
