@@ -3,6 +3,6 @@
 <div align="center">
   <img src="./images/skeleton.gif">
     <br />
-      <h2><p><ins>Neovim evlolution into an IDE.<ins></p></h2>
+      <h2><p><ins>Neovim evolution into an IDE.<ins></p></h2>
     <br />
 </div>
