@@ -47,9 +47,12 @@ patch -u -R ~/.local/share/nvim/mason/packages/solargraph/gems/solargraph-0.60.1
 
 - スレッドセーフと排他的制御にする[変更](https://github.com/takkii/.file/blob/main/patch/origin/library.rb#L482)をlibrary.patchにしました。✅️
 
-  ※ library.patchはsolargraphを高速化しますが、lsp.log内を肥大化させます。
+  > solargraphを高速化した名称を「solargraph-dark-phoenix 🐦‍🔥 」と名付けます。
 
-  必要に応じて、適用したパッチを元に戻しlsp.log内を全削除してください。
+  - LSPが動作することにより、書き込まれる内容によるログ容量の上昇に注意してください。🔥
+  
+  - 必要に応じて、適用したパッチを元に戻しlsp.log内を全削除してください。
+  - このパッチ(library.patch)を切り札として使うような用途を推奨します。ここぞというときにキメてください。♘
 
 ```markdown
 # 例えば、lsp.logを複製するには。
@@ -77,4 +80,4 @@ touch lsp.log
 
 _※ lsp.log内を全削除することが前提です。_
 
-更新履歴: 2026/06/25🔄
+更新履歴: 2026/07/04🔄
